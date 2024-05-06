@@ -1,29 +1,28 @@
 # Lina
 
-Lina 是 JumpServer 的前端 UI 项目, 主要使用 [Vue](https://cn.vuejs.org/), [Element UI](https://element.eleme.cn/) 完成, 
-名字来源于 Dota 英雄 [Lina](https://baike.baidu.com/item/%E8%8E%89%E5%A8%9C/16693979)
+Lina é o projeto de interface de usuário (UI) frontend do JumpServer, desenvolvido principalmente utilizando [Vue](https://cn.vuejs.org/) e [Element UI](https://element.eleme.cn/). O nome é inspirado na heroína do Dota [Lina](https://baike.baidu.com/item/%E8%8E%89%E5%A8%9C/16693979).
 
-## 开发运行
+## Execução do Desenvolvimento
 
 ```
-0. 前置条件: 部署运行好 JumpServer API 服务器
+0. Pré-requisito: Certifique-se de ter o servidor JumpServer API em execução.
 
-1. 安装依赖
+1. Instale as dependências
 $ yarn install
 
-2. 修改 .env.development VUE_APP_CORE_HOST
+2. Modifique .env.development VUE_APP_CORE_HOST
 # ...
 VUE_APP_CORE_HOST = 'JUMPSERVER_APIHOST'
 
-3. 运行
+3. Execute
 $ yarn serve
 
-4. 构建
+4. Construa
 $ yarn build:prod
 ```
 
-## 生产中部署
-下载 RELEASE 文件，放到合适的目录，修改 nginx配置文件如下
+## Implantação em Produção
+Baixe o arquivo RELEASE, coloque-o em um diretório apropriado e modifique o arquivo de configuração nginx da seguinte maneira:
 ```
 server {
   listen 80;
@@ -39,11 +38,10 @@ server {
 }
 ```
 
-## 致谢
-- [Vue](https://cn.vuejs.org) 前端框架
-- [Element UI](https://element.eleme.cn/) 饿了么 UI组件库
-- [Vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) 项目脚手架
+## Agradecimentos
+- [Vue](https://cn.vuejs.org) - Framework frontend
+- [Element UI](https://element.eleme.cn/) - Biblioteca de componentes de UI do Eleme
+- [Vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) - Esqueleto do projeto
 
-
-## License & Copyright
-Be consistent with [jumpserver](https://github.com/jumpserver/jumpserver)
+## Licença e Direitos Autorais
+Mantenha a consistência com [jumpserver](https://github.com/jumpserver/jumpserver)
