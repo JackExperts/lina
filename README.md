@@ -4,7 +4,7 @@
 
     ```bash
     cd /opt/
-    git clone https://github.com/joaofaria/lina-v3.10.7.git
+    git clone https://github.com/JackExperts/lina.git
     ```
 
 2. **Instalando Node.js:**
