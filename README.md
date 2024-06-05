@@ -22,7 +22,7 @@
 3. **Instalando dependências:**
 
     ```bash
-    cd /opt/lina-v3.10.9
+    cd /opt/lina
     npm install -g yarn
     yarn install
     ```
