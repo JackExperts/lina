@@ -460,5 +460,32 @@ export default {
   }
   .switch-date[data-v-e545c94e] .switch {
     background-color: #000 !important;
-}
+  }
+  .el-collapse-item__header {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 48px;
+    line-height: 48px;
+    background-color: #2a2a2e !important;
+    color: #fbbf24 !important;
+    cursor: pointer;
+    border-bottom: 1px solid #fff !important;
+    font-size: 13px;
+    font-weight: 500;
+    -webkit-transition: border-bottom-color .3s;
+    transition: border-bottom-color .3s;
+    outline: 0;
+  }
+  .el-collapse-item__wrap {
+    will-change: height;
+    background-color: #2a2a2e !important;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: 1px solid #EBEEF5;
+  }
 </style>
