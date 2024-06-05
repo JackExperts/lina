@@ -70,6 +70,12 @@ export default {
       top: 0;
     }
   }
+
+  .el-dropdown-menu{
+    background-color: #111113;
+    color: #fff;
+  }
+
   .drawer-bg {
     background: #000;
     opacity: 0.3;
@@ -92,6 +98,11 @@ export default {
   .mobile .fixed-header {
     width: 100%;
   }
+
+  .main-container >>> .page-submenu {
+    background-color: #141416;
+  }
+
   @media print {
     .disabled-when-print{
       display: none;
@@ -109,6 +120,7 @@ export default {
     .main-container{
       margin-left: 0 !important;
     }
+
     //.fixed-header{
     //  width: 100% !important;
     //}

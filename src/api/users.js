@@ -12,6 +12,7 @@ export function getProfile(token) {
   return request({
     url: '/api/v1/users/profile/',
     method: 'get'
+    // params: { token }
   })
 }
 

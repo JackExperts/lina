@@ -11,7 +11,7 @@
 import { GenericListPage } from '@/layout/components'
 import { DetailFormatter, TagChoicesFormatter } from '@/components/Table/TableFormatters'
 import { toSafeLocalDateStr } from '@/utils/common'
-import { APPROVE, CLOSED, OPEN, REJECT } from './const'
+import { APPROVE, REJECT } from './const'
 
 export default {
   name: 'TicketListTable',
@@ -42,7 +42,7 @@ export default {
         columnsExclude: ['process_map', 'rel_snapshot'],
         columnsShow: {
           min: ['title', 'serial_num', 'type', 'state', 'date_created'],
-          default: ['title', 'serial_num', 'type', 'state', 'date_created']
+          default: ['title', 'serial_num', 'type', 'state', 'status', 'date_created']
         },
         columnsMeta: {
           serial_num: {
@@ -71,7 +71,7 @@ export default {
             }
           },
           applicant: {
-            label: this.$t('tickets.Applicant'),
+            label: this.$t('tickets.user'),
             sortable: 'custom',
             formatter: row => {
               return row['rel_snapshot'].applicant
@@ -91,7 +91,11 @@ export default {
             formatter: TagChoicesFormatter,
             formatterArgs: {
               getTagLabel({ row }) {
-                return row.status.label
+                if (row.status.value === 'open') {
+                  return vm.$t('tickets.OpenStatus')
+                } else {
+                  return vm.$t('tickets.CloseStatus')
+                }
               },
               getTagType({ row }) {
                 if (row.status.value === 'open') {
@@ -103,6 +107,7 @@ export default {
             }
           },
           state: {
+            label: this.$t('tickets.action'),
             align: 'center',
             width: '90px',
             sortable: 'custom',
@@ -110,10 +115,8 @@ export default {
             formatterArgs: {
               getTagType({ row }) {
                 const mapper = {
-                  [OPEN]: 'success',
-                  [APPROVE]: 'primary',
-                  [REJECT]: 'danger',
-                  [CLOSED]: 'info'
+                  [APPROVE]: 'success',
+                  [REJECT]: 'danger'
                 }
                 return mapper[row.state.value] || 'warning'
               },
@@ -137,15 +140,35 @@ export default {
         canCreate: this.$hasPerm('tickets.view_ticket'),
         hasBulkDelete: false,
         searchConfig: {
-          exclude: ['id', 'title', 'type', 'applicant'],
+          default: {
+            state: {
+              key: 'state',
+              label: this.$t('tickets.action'),
+              value: 'pending',
+              valueLabel: this.$t('tickets.Pending')
+            }
+          },
+          exclude: ['state', 'id', 'title', 'type'],
           options: [
             {
-              value: 'id',
-              label: 'ID'
-            },
-            {
-              value: 'title',
-              label: this.$t('tickets.title')
+              value: 'state',
+              label: this.$t('tickets.action'),
+              type: 'choice',
+              children: [
+                {
+                  default: true,
+                  value: 'pending',
+                  label: this.$t('tickets.Pending')
+                },
+                {
+                  value: APPROVE,
+                  label: this.$t('tickets.Approved')
+                },
+                {
+                  value: REJECT,
+                  label: this.$t('tickets.Rejected')
+                }
+              ]
             },
             {
               value: 'type',
@@ -171,12 +194,24 @@ export default {
               ]
             },
             {
-              value: 'applicant_username_name',
-              label: this.$t('tickets.Applicant')
+              value: 'id',
+              label: 'ID'
+            },
+            {
+              value: 'title',
+              label: this.$t('tickets.title')
+            },
+            {
+              value: 'relevant_app',
+              label: this.$t('tickets.RelevantApp')
             },
             {
               value: 'relevant_asset',
               label: this.$t('tickets.RelevantAsset')
+            },
+            {
+              value: 'relevant_system_user',
+              label: this.$t('tickets.RelevantCommand')
             },
             {
               value: 'relevant_command',

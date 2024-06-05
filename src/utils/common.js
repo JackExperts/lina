@@ -43,7 +43,7 @@ function readableSecond(offset) {
 }
 
 function getUserLang() {
-  const userLangEN = document.cookie.indexOf('django_language=en')
+  const userLangEN = document.cookie.indexOf('django_language=pt')
   if (userLangEN === -1) {
     return 'zh-CN'
   } else {

@@ -117,7 +117,7 @@ export default {
       headerActions: {
         hasCreate: false,
         hasImport: false,
-        hasExport: true,
+        hasExport: false,
         searchConfig: {
           exclude: ['asset'],
           options: [

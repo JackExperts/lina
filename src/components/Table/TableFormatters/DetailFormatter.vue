@@ -5,7 +5,6 @@
       :disabled="disabled"
       :type="col.type || 'info'"
       class="detail"
-      :class="{ 'clicked': linkClicked }"
       @click="goDetail"
     >
       <slot>
@@ -31,7 +30,6 @@ export default {
           routeQuery: null,
           can: true,
           openInNewPage: false,
-          removeColorOnClick: false,
           getTitle({ col, row, cellValue }) {
             return cellValue
           },
@@ -45,7 +43,6 @@ export default {
   data() {
     const formatterArgs = Object.assign(this.formatterArgsDefault, this.col.formatterArgs)
     return {
-      linkClicked: false,
       formatterArgs: formatterArgs
     }
   },
@@ -103,7 +100,6 @@ export default {
   methods: {
     goDetail() {
       if (this.formatterArgs.openInNewPage) {
-        this.linkClicked = this.formatterArgs.removeColorOnClick
         const { href } = this.$router.resolve(this.detailRoute)
         window.open(href, '_blank')
       } else {
@@ -127,11 +123,6 @@ export default {
 .detail {
   line-height: 25px;
   font-size: 13px;
-}
-
-.clicked,
-.el-link.el-link--info.clicked {
-  color: inherit !important;
 }
 
 .icon {

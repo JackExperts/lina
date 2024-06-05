@@ -37,7 +37,7 @@ export default {
   .title {
     font-weight: 500;
     font-size: 16px;
-    color: #1F2329;
+    color: white;
   }
   .icon {
     color: #BBBFC4;

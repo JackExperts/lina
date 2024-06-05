@@ -15,5 +15,4 @@ tests/**/coverage/
 *.ntvs*
 *.njsproj
 *.sln
-.env.development
 .python-version

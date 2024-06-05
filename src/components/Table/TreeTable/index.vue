@@ -190,7 +190,7 @@ export default {
   }
 
   .el-tree {
-    background-color: inherit !important;
+    background-color: #18181b !important;
   }
 
   .mini {
@@ -201,7 +201,7 @@ export default {
 
   .tree-table-content {
     .left {
-      background: #f3f3f3;
+      background: #18181b;
 
       &:hover {
         ~ .right .is-show {

@@ -166,10 +166,12 @@ export default {
   }
   >>> .el-input__inner {
     font-size: 13px;
+    background-color: black;
   }
   >>> .el-cascader__search-input {
     display: none;
     margin: 0 0 2px 13px;
+    background-color: black;
   }
   >>> .el-input.is-focus + .el-cascader__tags .el-cascader__search-input {
     display: inline;

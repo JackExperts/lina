@@ -145,11 +145,11 @@ export default {
     padding: 4px 24px;
 
     &:hover {
-      background-color: var(--menu-hover);
+      background-color: #000;
     }
 
     &:focus {
-      background-color: transparent;
+      background-color: #000;
     }
   }
 }
@@ -204,6 +204,7 @@ export default {
 .el-menu-item.is-active {
   font-weight: bold;
   color: var(--menu-text-active);
+  background-color: #000;
   border-left: 4px solid var(--menu-text-active);
 }
 

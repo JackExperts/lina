@@ -83,10 +83,8 @@ export default {
       this.resDialogVisible = true
     },
     handleAddResource() {
+      this.bindVisible = true
       this.resDialogVisible = false
-      this.$nextTick(() => {
-        this.bindVisible = true
-      })
     },
     handleDialogConfirm() {
       this.bindVisible = false

@@ -89,7 +89,7 @@ div:focus {
 }
 
 .white-bg {
-  background-color: #ffffff;
+  background-color: #000;
 }
 
 .small, small {
@@ -292,20 +292,16 @@ input[type=file] {
 }
 
 .el-link--default {
-  color: #1c84c6 !important;
+  color: #fbbf24;
   font-weight: 300;
 }
 
 .el-link.is-underline:hover:after  {
-  border-bottom: 1px solid #007bff !important;
+  border-bottom: 1px solid #fbbf24 !important;
 }
 
 .el-dialog__title {
   font-size: 16px;
-}
-
-.el-dialog {
-  max-width: 100vw;
 }
 
 .el-input--mini .el-input__inner::placeholder {

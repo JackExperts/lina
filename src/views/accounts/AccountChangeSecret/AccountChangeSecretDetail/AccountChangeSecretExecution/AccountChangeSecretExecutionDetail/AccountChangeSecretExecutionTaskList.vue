@@ -8,7 +8,7 @@ import { ActionsFormatter, DetailFormatter } from '@/components/Table/TableForma
 import { openTaskPage } from '@/utils/jms'
 
 export default {
-  name: 'AccountPushExecutionTaskList',
+  name: 'AccountChangeSecretExecutionTaskList',
   components: {
     GenericListTable
   },
@@ -22,7 +22,7 @@ export default {
   data() {
     return {
       tableConfig: {
-        url: `/api/v1/accounts/push-account-records/?execution_id=${this.object.id}`,
+        url: `/api/v1/accounts/change-secret-records/?execution_id=${this.object.id}`,
         columns: [
           'asset', 'account', 'date_finished', 'is_success', 'error', 'actions'
         ],
@@ -86,7 +86,7 @@ export default {
                   type: 'primary',
                   callback: ({ row }) => {
                     this.$axios.post(
-                      '/api/v1/accounts/push-account-records/execute/',
+                      '/api/v1/accounts/change-secret-records/execute/',
                       { record_id: row.id }
                     ).then(res => {
                       openTaskPage(res['task'])

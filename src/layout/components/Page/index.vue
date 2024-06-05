@@ -79,13 +79,17 @@ export default {
 }
 
 .go-back {
-  border: none;
-  padding: 2px 2px;
+  border: 2px solid;
+  border-color: #fbbf24;
+  padding: 0px;
+  background-color: #fbbf24;
 }
 
 .go-back >>> i {
   font-size: 18px;
   font-weight: 600;
+  background-color: #fbbf24;
+  color: #fff;
 }
 
 @media print {

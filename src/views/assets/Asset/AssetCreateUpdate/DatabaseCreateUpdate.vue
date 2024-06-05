@@ -86,9 +86,6 @@ export default {
       if (['mongodb', 'postgresql'].indexOf(platform) !== -1) {
         fieldsMeta['db_name']['rules'] = [rules.Required]
       }
-      if (platform === 'oracle') {
-        fieldsMeta['db_name']['helpText'] = this.$t('assets.OracleDBNameHelpText')
-      }
       return fieldsMeta
     }
   }

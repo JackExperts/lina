@@ -1,12 +1,14 @@
 <template>
   <div class="sidebar-logo-container" :class="{'collapse':collapse}">
     <transition name="sidebarLogoFade">
-      <a v-if="collapse" key="collapse" class="sidebar-logo-link" @click="handleClick">
+      <router-link v-if="collapse" key="collapse" class="sidebar-logo-link" to="/">
         <img :src="logoSrc" class="sidebar-logo" alt="logo">
-      </a>
-      <a v-else key="expand" class="sidebar-logo-link" @click="handleClick">
+        <span class="access"> access </span>
+      </router-link>
+      <router-link v-else key="expand" class="sidebar-logo-link" to="/">
         <img :src="logoTextSrc" class="sidebar-logo-text" alt="logo">
-      </a>
+        <span class="access"> access </span>
+      </router-link>
     </transition>
   </div>
 </template>
@@ -27,7 +29,6 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'viewRoutes',
       'publicSettings'
     ]),
     // eslint-disable-next-line vue/return-in-computed-property
@@ -39,18 +40,6 @@ export default {
     }
   },
   created() {
-  },
-  methods: {
-    handleClick() {
-      const currentPath = this.$route.path
-      const matchingRoute = this.viewRoutes.find(route => currentPath.startsWith(route.path))
-
-      if (matchingRoute) {
-        this.$router.push(matchingRoute.redirect)
-      } else {
-        this.$router.push('/')
-      }
-    }
   }
 }
 </script>
@@ -63,6 +52,13 @@ export default {
 .sidebarLogoFade-enter,
 .sidebarLogoFade-leave-to {
   opacity: 0;
+}
+.access {
+  margin-left: 10px;
+  margin-top: 20px;
+  font-weight: bolder;
+  font-size: x-large;
+  color: white;
 }
 
 .sidebar-logo-container {

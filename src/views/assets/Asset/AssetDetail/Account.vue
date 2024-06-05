@@ -77,8 +77,7 @@ export default {
           attrs: {
             type: 'primary',
             label: this.$tc('accounts.Test'),
-            disabled: ['clickhouse', 'redis', 'website', 'chatgpt'].indexOf(this.object.type.value) !== -1 ||
-                this.$store.getters.currentOrgIsRoot
+            disabled: this.object.type.value === 'clickhouse' || this.object.type.value === 'redis'
           },
           callbacks: Object.freeze({
             click: () => {

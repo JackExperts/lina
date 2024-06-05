@@ -12,8 +12,6 @@
 import 'echarts/lib/chart/line'
 import 'echarts/lib/component/legend'
 
-import Decimal from 'decimal.js'
-
 export default {
   components: {
 
@@ -30,13 +28,8 @@ export default {
   },
   computed: {
     options() {
-      const { total = 0, active = 0, title, color } = this.config
-      const activeDecimal = new Decimal(active)
-      const totalDecimal = new Decimal(total)
-
-      let percentage = activeDecimal.dividedBy(totalDecimal).times(100)
-      percentage = isNaN(percentage) ? 0 : percentage
-      percentage = percentage.toFixed(2)
+      const { total, active = 0, title, color } = this.config
+      const percentage = active === 0 ? 0 : ((active / total) * 100).toFixed(0)
       return {
         title: [
           {

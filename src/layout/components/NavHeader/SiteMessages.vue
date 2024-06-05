@@ -220,7 +220,7 @@ export default {
     margin-bottom: 0;
     padding-top: 10px;
     font-size: 16px;
-
+    background-color: #111113;
     .msg-list-all-read-btn {
       font-size: 12px;
       float: right;
@@ -229,6 +229,12 @@ export default {
 
   .el-drawer__body {
     overflow-y: auto;
+    background-color: #111113;
+    color: white;
+  }
+
+  .msg-item-txt{
+    color: #fbbf24;
   }
 }
 

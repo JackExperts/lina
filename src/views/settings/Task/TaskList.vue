@@ -3,12 +3,11 @@
 </template>
 
 <script type="text/jsx">
-import { ChoicesFormatter, DetailFormatter, SwitchFormatter } from '@/components/Table/TableFormatters'
+import { ChoicesFormatter, DetailFormatter } from '@/components/Table/TableFormatters'
 import { BASE_URL } from '@/utils/common'
 import ListTable from '@/components/Table/ListTable/index.vue'
 
 export default {
-  name: 'TaskList',
   components: {
     ListTable
   },
@@ -17,7 +16,7 @@ export default {
       tableConfig: {
         url: '/api/v1/ops/tasks/',
         columns: [
-          'name', 'queue', 'count', 'state', 'date_last_publish', 'exec_cycle', 'next_exec_time', 'enabled'
+          'name', 'queue', 'count', 'state', 'date_last_publish', 'exec_cycle', 'next_exec_time'
         ],
         columnsMeta: {
           name: {
@@ -32,6 +31,9 @@ export default {
                 return cellValue
               }
             }
+          },
+          actions: {
+            has: false
           },
           queue: {
             width: '120px',
@@ -105,27 +107,6 @@ export default {
                 }
               }
             }
-          },
-          actions: {
-            has: false
-          },
-          enabled: {
-            width: '80px',
-            label: `${this.$t('common.Enable')}/${this.$t('common.Disable')}`,
-            formatter: SwitchFormatter,
-            formatterArgs: {
-              isDisplay(row) {
-                return row.exec_cycle !== undefined
-              },
-              getPatchUrl(row) {
-                return `/api/v1/ops/celery/period-tasks/${row.name}/`
-              },
-              getPatchData(row) {
-                return {
-                  enabled: !row.enabled
-                }
-              }
-            }
           }
         }
       },
@@ -143,7 +124,8 @@ export default {
         ]
       }
     }
-  }
+  },
+  methods: {}
 }
 </script>
 

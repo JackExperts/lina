@@ -157,7 +157,8 @@ export default {
         padding-right: 10px;
         padding-left: 10px;
         vertical-align: top;
-
+        background-color: #101013;
+        border-radius: 10px;
         & > > > .svg-icon {
           color: #FFF !important;
         }

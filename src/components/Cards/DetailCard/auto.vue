@@ -106,28 +106,16 @@ export default {
 
         if (Array.isArray(value)) {
           if (typeof value[0] === 'object') {
-            const firstValue = value[0]
-            if (firstValue.hasOwnProperty('name')) {
-              value.forEach(item => {
-                const fieldName = `${name}.${item.name}`
-                if (excludes.includes(fieldName)) {
-                  return
-                }
-                this.items.push({
-                  key: item.label,
-                  value: item.value
-                })
+            value.forEach(item => {
+              const fieldName = `${name}.${item.name}`
+              if (excludes.includes(fieldName)) {
+                return
+              }
+              this.items.push({
+                key: item.label,
+                value: item.value
               })
-            } else {
-              value.forEach((item, index) => {
-                const v = Object.entries(item).map(([key, value]) => `${key}:${value}`).join(', ')
-                const data = { value: v }
-                if (index === 0) {
-                  data['key'] = label
-                }
-                this.items.push(data)
-              })
-            }
+            })
           } else if (typeof value[0] === 'string') {
             value.forEach((item, index) => {
               let data = {}

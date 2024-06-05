@@ -45,7 +45,7 @@ export default {
       fieldsMeta: {
         ...getChangeSecretFields(),
         assets: {
-          label: this.$t('assets.Asset'),
+          label: this.$t('xpack.Asset'),
           type: 'assetSelect',
           component: AssetSelect,
           rules: [
@@ -61,7 +61,7 @@ export default {
           }
         },
         nodes: {
-          label: this.$t('assets.Node'),
+          label: this.$t('xpack.Node'),
           el: {
             value: [],
             ajax: {

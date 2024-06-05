@@ -44,7 +44,9 @@ export default {
 <style lang="scss" scoped>
 .box {
   padding: 20px;
-  background: #FFFFFF;
+  background: #1a1a1c;
+  border-radius: .375rem;
+  border: 1px solid #2d2d31;
   .content {
     .el-col {
       padding-left: 16px;
@@ -59,7 +61,7 @@ export default {
       font-weight: 400;
       font-size: 12px;
       line-height: 20px;
-      color: #646A73;
+      color: #fff;
     }
     .num {
       font-style: normal;

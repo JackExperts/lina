@@ -5,7 +5,6 @@
 <script>
 import GenericCreateUpdatePage from '@/layout/components/GenericCreateUpdatePage'
 import AssetSelect from '@/components/Apps/AssetSelect'
-import ObjectSelect2 from '@/components/Form/FormFields/NestedObjectSelect2.vue'
 
 export default {
   name: 'GatewayCreateUpdate',
@@ -16,7 +15,7 @@ export default {
     return {
       initial: {},
       fields: [
-        [this.$t('common.Basic'), ['name', 'gateways', 'assets']],
+        [this.$t('common.Basic'), ['name', 'assets']],
         [this.$t('common.Other'), ['comment']]
       ],
       fieldsMeta: {
@@ -32,16 +31,6 @@ export default {
             },
             canSelect: (row) => {
               return row.platform?.name !== 'Gateway'
-            }
-          }
-        },
-        gateways: {
-          component: ObjectSelect2,
-          el: {
-            multiple: true,
-            clearable: true,
-            ajax: {
-              url: '/api/v1/assets/assets/?domain_enabled=true&platform=Gateway'
             }
           }
         }

@@ -53,8 +53,10 @@ export default {
 
 <style lang="scss" scoped>
 .box {
-  margin-top: 16px;
+  margin-top: 160px;
   padding: 20px;
-  background-color: #fff;
+  background: #1a1a1c;
+  border-radius: .375rem;
+  border: 1px solid #2d2d31;
 }
 </style>

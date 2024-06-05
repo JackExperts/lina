@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div style="margin-bottom: 12px;">
-      <Title :config="config" />
+      <Title :config="config" style="color:white" />
     </div>
     <div class="content">
       <el-row type="flex" justify="space-between">
@@ -75,7 +75,10 @@ export default {
 <style lang="scss" scoped>
 .box {
   padding: 20px;
-  background: #FFFFFF;
+  background: #1a1a1c;
+  border-radius: .375rem;
+  border: 1px solid #2d2d31;
+  color: white;
   .content {
     .el-col {
       padding-left: 16px;
@@ -90,13 +93,14 @@ export default {
       font-weight: 400;
       font-size: 12px;
       line-height: 20px;
-      color: #646A73;
+      color: white;
     }
     .num {
       font-style: normal;
       font-weight: 500;
       font-size: 24px;
       cursor: pointer;
+      color: #fff;
     }
   }
 }

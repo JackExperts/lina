@@ -152,7 +152,7 @@ export default {
     padding: 1px 2px 1px;
     border: 1px solid #dcdee2;
     border-radius: 1px;
-    background-color: #fff;
+    background-color: #000;
     line-height: 32px;
 
     &:hover {
@@ -175,6 +175,7 @@ export default {
       max-width: 100%;
       border: none;
       padding-left: 10px;
+      background-color: #000;
     }
   }
 
@@ -185,6 +186,7 @@ export default {
 
   .filter-field >>> .el-input__inner {
     height: 29px;
+    background-color: #000;
   }
 
   .show-password {

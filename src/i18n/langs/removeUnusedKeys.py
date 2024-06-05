@@ -6,7 +6,7 @@ lang_paths = {
     'cn': 'cn.json',
     'en': 'en.json',
     'ja': 'ja.json',
-    'zh_hant': 'zh_Hant.json'
+    'pt': 'pt.json'
 }
 
 

@@ -5,7 +5,6 @@
 <script type="text/jsx">
 import TreeTable from '../../Table/TreeTable/index.vue'
 import { DetailFormatter } from '@/components/Table/TableFormatters'
-import { AccountInfoFormatter } from '@/components/Table/TableFormatters'
 import { connectivityMeta } from '@/components/Apps/AccountListTable/const'
 
 export default {
@@ -59,11 +58,10 @@ export default {
       tableConfig: {
         url: this.tableUrl,
         hasTree: true,
-        columnsExtra: ['view_account'],
         columnsExclude: ['spec_info'],
         columnsShow: {
           min: ['name', 'address', 'accounts'],
-          default: ['name', 'address', 'platform', 'view_account', 'connectivity']
+          default: ['name', 'address', 'platform', 'connectivity']
         },
         columnsMeta: {
           name: {
@@ -74,11 +72,6 @@ export default {
           },
           actions: {
             has: false
-          },
-          view_account: {
-            label: this.$t('assets.Account'),
-            formatter: AccountInfoFormatter,
-            width: '100px'
           },
           connectivity: connectivityMeta
         }

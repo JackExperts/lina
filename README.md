@@ -1,47 +1,67 @@
-# Lina
+# Baixando o código
 
-Lina é o projeto de interface de usuário (UI) frontend do JumpServer, desenvolvido principalmente utilizando [Vue](https://cn.vuejs.org/) e [Element UI](https://element.eleme.cn/). O nome é inspirado na heroína do Dota [Lina](https://baike.baidu.com/item/%E8%8E%89%E5%A8%9C/16693979).
+1. **Clone o repositório Lina v3.10.7 para o diretório /opt/:**
 
-## Execução do Desenvolvimento
+    ```bash
+    cd /opt/
+    git clone https://github.com/joaofaria/lina-v3.10.7.git
+    ```
 
-```
-0. Pré-requisito: Certifique-se de ter o servidor JumpServer API em execução.
+2. **Instalando Node.js:**
 
-1. Instale as dependências
-$ yarn install
+    ```bash
+    cd /opt
+    wget https://nodejs.org/download/release/v16.14.0/node-v16.14.0-linux-x64.tar.xz
+    tar -xf node-v16.14.0-linux-x64.tar.xz
+    mv node-v16.14.0-linux-x64 /usr/local/node
+    chown -R root:root /usr/local/node
+    export PATH=/usr/local/node/bin:$PATH
+    echo 'export PATH=/usr/local/node/bin:$PATH' >> ~/.bashrc
+    ```
 
-2. Modifique .env.development VUE_APP_CORE_HOST
-# ...
-VUE_APP_CORE_HOST = 'JUMPSERVER_APIHOST'
+3. **Instalando dependências:**
 
-3. Execute
-$ yarn serve
+    ```bash
+    cd /opt/lina-v3.10.9
+    npm install -g yarn
+    yarn install
+    ```
 
-4. Construa
-$ yarn build:prod
-```
+4. **Configurando variáveis de ambiente:**
 
-## Implantação em Produção
-Baixe o arquivo RELEASE, coloque-o em um diretório apropriado e modifique o arquivo de configuração nginx da seguinte maneira:
-```
-server {
-  listen 80;
+    - Edite o arquivo `.env.development` e cole o conteúdo abaixo:
 
-  location /ui/ {
-    try_files $uri / /ui/index.html;
-    alias /opt/lina/;
-  }
+        ```plaintext
+        # Global environment variables, do not modify casually
+        ENV = 'development'
 
-  location / {
-    rewrite ^/(.*)$ /ui/$1 last;
-  }
-}
-```
+        # base api
+        VUE_APP_BASE_API = ''
+        VUE_APP_PUBLIC_PATH = '/ui/'
 
-## Agradecimentos
-- [Vue](https://cn.vuejs.org) - Framework frontend
-- [Element UI](https://element.eleme.cn/) - Biblioteca de componentes de UI do Eleme
-- [Vue-element-admin](https://github.com/PanJiaChen/vue-element-admin) - Esqueleto do projeto
+        # vue-cli uses the VUE_CLI_BABEL_TRANSPILE_MODULES environment variable,
+        # to control whether the babel-plugin-dynamic-import-node plugin is enabled.
+        # It only does one thing by converting all import() to require().
+        # This configuration can significantly increase the speed of hot updates,
+        # when you have a large number of pages.
+        # Detail:  https://github.com/vuejs/vue-cli/blob/dev/packages/@vue/babel-preset-app/index.js
 
-## Licença e Direitos Autorais
-Mantenha a consistência com [jumpserver](https://github.com/jumpserver/jumpserver)
+        VUE_CLI_BABEL_TRANSPILE_MODULES = true
+
+        # External auth
+        VUE_APP_LOGIN_PATH = '/core/auth/login/'
+        VUE_APP_LOGOUT_PATH = '/core/auth/logout/'
+
+        # Dev server for core proxy
+        VUE_APP_CORE_HOST = 'http://localhost:8080'
+        VUE_APP_CORE_WS = 'ws://localhost:8080'
+        VUE_APP_KAEL_HOST = 'http://localhost:8083'
+        VUE_APP_ENV = 'development'
+        ```
+
+5. **Iniciando o sistema:**
+
+    ```bash
+    npm run dev
+    ```
+

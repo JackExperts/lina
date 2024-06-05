@@ -220,34 +220,39 @@ export default {
 <style lang="scss" scoped>
 
 .table-content {
+  background-color: #18181b;
   margin-top: 10px;
 
   & > > > .el-card__body {
     padding: 0;
+    background-color: #18181b;
   }
 
   & > > > .el-table__header thead > tr > th {
-    background-color: white;
+    background-color: #18181b;
   }
 
   & > > > .el-table__row .cell {
     overflow: hidden;
+    background-color: #18181b;
     white-space: nowrap;
     text-overflow: ellipsis;
   }
 
   & > > > .el-table__expanded-cell pre {
     max-height: 500px;
+    background-color: #18181b;
     overflow-y: scroll;
   }
 
   & > > > .el-button-ungroup .el-dropdown > .more-action {
     height: 24.6px;
+    background-color: #18181b;
   }
 }
 
 //修改颜色
 .el-button--text {
-  color: #409EFF;
+  color: #fbbf24;
 }
 </style>

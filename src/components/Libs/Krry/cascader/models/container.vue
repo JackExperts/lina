@@ -53,34 +53,27 @@ export default {
   },
   props: {
     boxTitle: {
-      type: Array,
-      default: () => []
+      type: Array
     },
     boxOperation: {
-      type: Array,
-      default: () => []
+      type: Array
     },
     // 地域数据
     dataObj: {
-      type: Object,
-      default: () => {}
+      type: Object
     },
     // 已选数据
     selectedData: {
-      type: Array,
-      default: () => []
+      type: Array
     },
     onChangeSelected: {
-      type: Function,
-      default: () => () => {}
+      type: Function
     },
     filterable: {
-      type: Boolean,
-      default: () => false
+      type: Boolean
     },
     filterPlaceholder: {
-      type: String,
-      default: () => ''
+      type: String
     }
   },
   data() {

@@ -85,7 +85,6 @@ export default {
         hasRefresh: true,
         hasExport: this.$hasPerm('accounts.view_accounttemplatesecret'),
         hasMoreActions: false,
-        hasLabelSearch: true,
         exportOptions: {
           url: '/api/v1/accounts/account-template-secrets/',
           mfaVerifyRequired: true,

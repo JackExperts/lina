@@ -8,7 +8,7 @@
     <div v-if="tip !== ''" class="help-block">{{ tip }}</div>
     <input v-model="value" hidden type="text" v-on="$listeners">
     <div>
-      <img :class="showBG ? 'show-bg' : ''" :src="preview" v-bind="$attrs">
+      <img :src="preview" v-bind="$attrs">
     </div>
   </div>
 </template>
@@ -27,10 +27,6 @@ export default {
     accept: {
       type: String,
       default: '*'
-    },
-    showBG: {
-      type: Boolean,
-      default: false
     }
   },
   data() {
@@ -78,8 +74,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-.show-bg {
-  background-color: var(--banner-bg);
-}
+<style scoped>
+
 </style>

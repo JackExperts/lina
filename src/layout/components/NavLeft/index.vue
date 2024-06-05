@@ -169,7 +169,7 @@ export default {
     padding: 14px 0 13px 20px;
     font-size: 16px;
     font-weight: 500;
-    color: #1F2329;
+    color: #fff;
     overflow: hidden;
     white-space: nowrap;
     cursor: pointer;
@@ -177,6 +177,7 @@ export default {
     transition: all 0.3s;
 
     .switch-view {
+      background-color: #fbbf24;
       padding: 6px;
       position: absolute;
       top: 50%;

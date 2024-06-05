@@ -81,7 +81,7 @@ export default {
         },
         {
           label: this.$t('common.Version'),
-          value: 'version-dev'
+          value: 'v3.10.7'
         },
         {
           label: this.$t('common.PermissionCompany'),
@@ -142,6 +142,7 @@ export default {
 }
 
 .box {
+  background-color: #666;
   .text {
     line-height: 2;
     font-size: 14px;

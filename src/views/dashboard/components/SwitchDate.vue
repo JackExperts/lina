@@ -57,15 +57,15 @@ export default {
 
 <style lang="scss" scoped>
 .switch {
-  background: #EFF0F1;
+  background: #000;
   border-radius: 4px;
   padding: 1px 4px;
 
   & > > > .el-radio-button {
     .el-radio-button__inner {
       border: none;
-      color: #8F959E;
-      background: #EFF0F1;
+      color: #fff;
+      background: #1a1a1c;
     }
 
     &.is-active {
@@ -74,8 +74,8 @@ export default {
       box-shadow: 2px 1px 2px rgba(0 0 0 / 8%);
 
       .el-radio-button__inner {
-        color: black;
-        background-color: #FFF;
+        color: #000;
+        background-color: #fbbf24;
         border-radius: 4px;
         box-shadow: 0 2px 2px rgb(90 97 105 / 31%)!important;
       }

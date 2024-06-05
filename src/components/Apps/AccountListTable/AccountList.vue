@@ -355,9 +355,8 @@ export default {
             type: 'primary',
             fa: 'fa-handshake-o',
             can: ({ selectedRows }) => {
-              return selectedRows.length > 0 &&
-                  ['clickhouse', 'redis', 'website', 'chatgpt'].indexOf(selectedRows[0].asset.type.value) === -1 &&
-                  !this.$store.getters.currentOrgIsRoot
+              return selectedRows.length > 0 && selectedRows[0].asset.type.value !== 'clickhouse' &&
+                selectedRows[0].asset.type.value !== 'redis'
             },
             callback: function({ selectedRows }) {
               const ids = selectedRows.map(v => {
@@ -498,5 +497,6 @@ export default {
 <style lang='scss' scoped>
 .cell a {
   color: var(--color-info);
+  background-color: black;
 }
 </style>

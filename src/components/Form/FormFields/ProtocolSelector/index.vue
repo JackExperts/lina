@@ -331,6 +331,7 @@ export default {
   width: 120px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  background-color: black;
 }
 
 .input-with-select {

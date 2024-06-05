@@ -48,8 +48,7 @@ export default {
   props: {
     config: {
       type: Object,
-      default: () => {
-      }
+      default: () => {}
     },
     options: {
       type: Array,
@@ -57,7 +56,7 @@ export default {
     },
     getUrlQuery: {
       type: Boolean,
-      default: () => false
+      default: () => true
     },
     default: {
       type: Object,
@@ -213,10 +212,12 @@ export default {
         delete routeFilter.search
       }
       const asFilterTags = _.cloneDeep(this.filterTags)
-      this.filterTags = {
-        ...asFilterTags,
-        ...routeFilter
-      }
+      setTimeout(() => {
+        this.filterTags = {
+          ...asFilterTags,
+          ...routeFilter
+        }
+      }, 100)
     },
     getValueLabel(key, value) {
       for (const field of this.options) {
@@ -344,77 +345,71 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.filter-field {
-  display: flex;
-  align-items: center;
-  min-width: 198px;
-  border: 1px solid #dcdee2;
-  border-radius: 3px;
-  background-color: #fff;
+  .filter-field {
+    display: flex;
+    align-items:  center;
+    min-width: 198px;
+    border: 1px solid #2d2d31;
+    border-radius: 4px;
+    background-color:#1a1a1c ;
 
-}
+  }
+  .search-input  >>> .el-input__suffix {
+    cursor: pointer;
+  }
+  .search-input2 >>> .el-input__inner {
+    text-indent: 5px;
+  }
+  .search-input >>> .el-input__inner {
+    /*max-width:inherit !important;*/
 
-.search-input > > > .el-input__suffix {
-  cursor: pointer;
-}
+    max-width: 200px;
+    border: none;
+    padding-left: 5px;
+  }
+  .el-input >>> .el-input__inner{
+    border: none !important;
+    font-size: 13px;
+    background-color: #1a1a1c ;
+  }
 
-.search-input2 > > > .el-input__inner {
-  text-indent: 5px;
-}
+  .filterTitle {
+    padding-right: 2px;
+    line-height: 100%;
+    text-align: center;
+    flex-shrink: 0;
+    border-collapse: separate;
+    box-sizing: border-box;
+    color: rgb(96, 98, 102);
+    display: inline;
+    font-size: 13px;
+    height: auto;
+  }
+  .filter-tag{
+    margin: 2px 4px 2px 0;
+  }
+  .el-icon--right{
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  a {
+    color: #000;
+  }
 
-.search-input > > > .el-input__inner {
-  /*max-width:inherit !important;*/
+  .filter-field >>> .el-cascader .el-input--suffix .el-input__inner {
+    padding-right: 20px;
+  }
 
-  max-width: 200px;
-  border: none;
-  padding-left: 5px;
-}
+  .filter-field >>> .el-cascader .el-input input {
+    width: 0;
+    border: none;
+  }
 
-.el-input > > > .el-input__inner {
-  border: none !important;
-  font-size: 13px;
-}
+  .filter-field >>> .el-input__inner {
+    height: 30px;
+  }
 
-.filterTitle {
-  padding-right: 2px;
-  line-height: 100%;
-  text-align: center;
-  flex-shrink: 0;
-  border-collapse: separate;
-  box-sizing: border-box;
-  color: rgb(96, 98, 102);
-  display: inline;
-  font-size: 13px;
-  height: auto;
-}
-
-.filter-tag {
-  margin: 2px 4px 2px 0;
-}
-
-.el-icon--right {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-
-a {
-  color: #000;
-}
-
-.filter-field > > > .el-cascader .el-input--suffix .el-input__inner {
-  padding-right: 20px;
-}
-
-.filter-field > > > .el-cascader .el-input input {
-  width: 0;
-  border: none;
-}
-
-.filter-field > > > .el-input__inner {
-  height: 30px;
-}
-
-.el-cascader-menu__wrap {
-  height: inherit;
-}
+  .el-cascader-menu__wrap {
+    height: inherit;
+  }
 </style>

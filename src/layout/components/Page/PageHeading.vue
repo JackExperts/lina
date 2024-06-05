@@ -7,7 +7,7 @@
     </slot>
     <div class="page-heading">
       <el-row :gutter="0">
-        <el-col :span="16" class="page-heading-left">
+        <el-col :span="16" class="page-heading-left" style="color: #fff">
           <slot><h2>{{ title }}</h2></slot>
         </el-col>
         <el-col :span="8">
@@ -51,7 +51,8 @@ export default {
     position: relative;
     height: 50px;
     line-height: 50px;
-    background-color: #ffffff;
+    background-color: #18181b;
+    border: 1px solid #2c2c30;
     .el-row {
       width: 100%;
       position: absolute;

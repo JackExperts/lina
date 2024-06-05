@@ -22,7 +22,6 @@ export default {
             [
               'SECURITY_WATERMARK_ENABLED',
               'SECURITY_SESSION_SHARE',
-              'SESSION_EXPIRE_AT_BROWSER_CLOSE',
               'SECURITY_MAX_IDLE_TIME',
               'SECURITY_MAX_SESSION_TIME'
             ]

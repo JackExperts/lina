@@ -137,11 +137,6 @@ export default {
       deep: true
     }
   },
-  mounted() {
-    if (!this.$store.getters.hasValidLicense) {
-      delete this.fields[3]
-    }
-  },
   methods: {
     hasType(type) {
       return this.isAssetType.indexOf(type) > -1

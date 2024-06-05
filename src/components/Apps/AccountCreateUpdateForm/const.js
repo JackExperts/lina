@@ -113,6 +113,7 @@ export const accountFieldsMeta = (vm) => {
       label: vm.$t('assets.Password'),
       component: UpdateToken,
       hidden: (formValue) => {
+        console.log('formValue: ', formValue)
         return formValue.secret_type !== 'password' || vm.addTemplate
       }
     },

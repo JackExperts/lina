@@ -60,10 +60,6 @@ export default {
       type: Array,
       default: () => []
     },
-    addExtraMoreColActions: {
-      type: Array,
-      default: () => []
-    },
     helpMessage: {
       type: String,
       default: ''
@@ -101,7 +97,7 @@ export default {
         route.query.type = row.type.value
         route.query.category = row.type.category
       }
-      const createInNewPage = this.$route.query.node_id
+      const createInNewPage = this.$route.query.node_id && routeAction === 'Create'
       if (createInNewPage) {
         const { href } = vm.$router.resolve(route)
         window.open(href, '_blank')
@@ -206,8 +202,7 @@ export default {
                       })
                     }
                   }
-                },
-                ...this.addExtraMoreColActions
+                }
               ]
             }
           }

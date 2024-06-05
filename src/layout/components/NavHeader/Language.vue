@@ -17,14 +17,14 @@ export default {
       LANG_COOKIE_NAME: 'django_language', // 后端Django需要的COOKIE KEY
       supportLanguages: [
         {
+          title: 'Português (Brasil)',
+          code: 'pt',
+          cookieCode: 'pt' // cookie code是为了让后端知道当前语言
+        },
+        {
           title: '中文(简体)',
           code: 'cn',
           cookieCode: 'zh-hans' // cookie code是为了让后端知道当前语言
-        },
-        {
-          title: '中文(繁體)',
-          code: 'zh_hant',
-          cookieCode: 'zh-hant' // cookie code是为了让后端知道当前语言
         },
         {
           title: 'English',
@@ -36,6 +36,7 @@ export default {
           code: 'ja',
           cookieCode: 'ja' // cookie code是为了让后端知道当前语言
         }
+
       ]
     }
   },
@@ -69,8 +70,8 @@ export default {
         this.$moment.locale('en')
       } else if (this.currentLang.code.indexOf('ja') > -1) {
         this.$moment.locale('ja')
-      } else if (this.currentLang.code.indexOf('zh_hant') > -1) {
-        this.$moment.locale('zh-tw')
+      } else if (this.currentLang.code.indexOf('pt') > -1) {
+        this.$moment.locale('pt')
       } else {
         this.$moment.locale('zh-cn')
       }
@@ -82,19 +83,15 @@ export default {
       window.location.reload()
     },
     getLangCode() {
-      let langCode = this.$cookie.get(this.LANG_COOKIE_NAME)
+      let langCode = localStorage.lang
       if (!langCode) {
-        langCode = localStorage.lang
+        langCode = this.$cookie.get(this.LANG_COOKIE_NAME)
       }
       if (!langCode) {
         langCode = navigator.language || navigator.userLanguage
       }
-      if (langCode === 'zh-hant') {
-        langCode = 'zh_hant'
-      } else {
-        langCode = langCode.slice(0, 2)
-        langCode = langCode.replace('zh', 'cn')
-      }
+      langCode = langCode.substr(0, 2)
+      langCode = langCode.replace('zh', 'cn')
       return langCode
     }
   }

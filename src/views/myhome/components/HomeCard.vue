@@ -96,7 +96,7 @@ export default {
       display: inline-block;
       font-size: 14px;
       font-weight: 500;
-      color: #000;
+      color: #fff;
     }
     .others {
       width: 100%;

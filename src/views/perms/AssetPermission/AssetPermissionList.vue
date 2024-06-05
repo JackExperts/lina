@@ -21,7 +21,6 @@ import PermBulkUpdateDialog from './components/PermBulkUpdateDialog'
 import AmountFormatter from '@/components/Table/TableFormatters/AmountFormatter'
 import { mapGetters } from 'vuex'
 import { AccountLabelMapper, AssetPermissionListPageSearchConfigOptions } from '../const'
-import { SwitchFormatter } from '@/components/Table/TableFormatters'
 
 export default {
   components: {
@@ -47,7 +46,7 @@ export default {
         columnsExtra: ['action'],
         columns: [
           'name', 'users_amount', 'user_groups_amount', 'assets_amount', 'nodes_amount',
-          'accounts', 'is_valid', 'is_expired', 'from_ticket', 'is_active', 'actions'
+          'accounts', 'is_expired', 'from_ticket', 'actions'
         ],
         columnsShow: {
           min: ['name', 'actions'],
@@ -61,20 +60,6 @@ export default {
             formatterArgs: {
               routeQuery: {
                 activeTab: 'AssetPermissionDetail'
-              }
-            }
-          },
-          is_active: {
-            width: '100px',
-            formatter: SwitchFormatter,
-            formatterArgs: {
-              getPatchUrl(row) {
-                return `/api/v1/perms/asset-permissions/${row.id}/`
-              },
-              getPatchData(row) {
-                return {
-                  is_active: !row.is_active
-                }
               }
             }
           },
@@ -96,12 +81,14 @@ export default {
           },
           from_ticket: {
             label: this.$t('perms.fromTicket'),
+            width: 100,
             formatterArgs: {
               showFalse: false
             }
           },
           users_amount: {
             label: this.$t('perms.User'),
+            width: '60px',
             formatter: AmountFormatter,
             formatterArgs: {
               async: true,
@@ -112,6 +99,7 @@ export default {
           },
           user_groups_amount: {
             label: this.$t('perms.UserGroups'),
+            width: '100px',
             formatter: AmountFormatter,
             formatterArgs: {
               async: true,
@@ -122,6 +110,7 @@ export default {
           },
           assets_amount: {
             label: this.$t('perms.Asset'),
+            width: '60px',
             formatter: AmountFormatter,
             formatterArgs: {
               async: true,
@@ -132,6 +121,7 @@ export default {
           },
           nodes_amount: {
             label: this.$t('perms.Node'),
+            width: '60px',
             formatter: AmountFormatter,
             formatterArgs: {
               async: true,
@@ -142,6 +132,7 @@ export default {
           },
           accounts: {
             label: this.$t('perms.Account'),
+            width: '60px',
             formatter: AmountFormatter,
             formatterArgs: {
               getItem(item) {
@@ -149,7 +140,6 @@ export default {
                   return AccountLabelMapper[item] || item
                 }
               },
-              cellValueToRemove: ['@SPEC'],
               routeQuery: {
                 activeTab: 'AssetPermissionAccount'
               }

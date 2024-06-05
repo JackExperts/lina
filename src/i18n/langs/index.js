@@ -1,20 +1,16 @@
 import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
-import zhTWLocale from 'element-ui/lib/locale/lang/zh-TW'
 import enLocale from 'element-ui/lib/locale/lang/en'
 import jaLocale from 'element-ui/lib/locale/lang/ja'
+import ptLocale from 'element-ui/lib/locale/lang/pt-br'
 import zh from './zh.json'
-import zhHant from './zh_Hant.json'
 import en from './en.json'
 import ja from './ja.json'
+import pt from './pt.json'
 
 export default {
   zh: {
     ...zhLocale,
     ...zh
-  },
-  zh_hant: {
-    ...zhTWLocale,
-    ...zhHant
   },
   en: {
     ...enLocale,
@@ -23,5 +19,9 @@ export default {
   ja: {
     ...jaLocale,
     ...ja
+  },
+  pt: {
+    ...ptLocale,
+    ...pt
   }
 }

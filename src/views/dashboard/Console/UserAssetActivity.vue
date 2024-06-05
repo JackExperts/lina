@@ -63,11 +63,14 @@ export default {
 .box {
   margin-top: 16px;
   padding: 20px;
-  background: #fff;
+  background: #1a1a1c;
+  border-radius: .375rem;
+  border: 1px solid #2d2d31;
   .head {
     display: flex;
     justify-content: space-between;
     margin-bottom: 8px;
+    color: white;
   }
 }
 </style>

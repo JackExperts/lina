@@ -99,6 +99,7 @@ export default {
 
   .el-input__inner {
     border: 1px solid #dcdee2;
+    background-color: black;
     border-radius: 3px;
     height: 32px;
   }

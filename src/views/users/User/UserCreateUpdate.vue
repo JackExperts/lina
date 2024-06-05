@@ -8,7 +8,6 @@ import { PhoneInput, UserPassword } from '@/components/Form/FormFields'
 import rules from '@/components/Form/DataForm/rules'
 import { mapGetters } from 'vuex'
 import { Select2 } from '@/components'
-import store from '@/store'
 
 export default {
   components: {
@@ -40,9 +39,6 @@ export default {
           hidden: (formValue) => {
             return this.$route.params.id || formValue.source !== 'local'
           }
-        },
-        mfa_level: {
-          disabled: false
         },
         email: {
           rules: [
@@ -152,8 +148,8 @@ export default {
           },
           hidden: () => {
             return !this.$store.getters.hasValidLicense ||
-                !this.$hasPerm('rbac.add_orgrolebinding') ||
-                this.$store.getters.currentOrgIsRoot
+              !this.$hasPerm('rbac.add_orgrolebinding') ||
+              this.$store.getters.currentOrgIsRoot
           },
           helpText: this.$t('users.HelpText.OrgRoleHelpText')
         },
@@ -216,7 +212,6 @@ export default {
       this.fieldsMeta.groups.el.disabled = true
     }
     await this.setDefaultRoles()
-    this.disableMFAFieldIfNeed(null)
     this.loading = false
   },
   methods: {
@@ -234,21 +229,11 @@ export default {
       if (this.$route.query.clone_from) {
         this.user.groups = []
       }
-      this.disableMFAFieldIfNeed(user)
     },
     async setDefaultRoles() {
       const roles = await this.$axios.get('/api/v1/rbac/roles/')
       this.initial.system_roles = roles.filter(role => role.name === 'User').map(role => role.id)
       this.initial.org_roles = roles.filter(role => role.name === 'OrgUser').map(role => role.id)
-    },
-    disableMFAFieldIfNeed(user) {
-      // SECURITY_MFA_AUTH 0 不开启 1 全局开启 2 管理员开启
-      const adminUserIsNeed = (user?.is_superuser || user?.is_org_admin) && this.$route.meta.action === 'update' &&
-          store.getters.publicSettings['SECURITY_MFA_AUTH'] === 2
-      if (store.getters.publicSettings['SECURITY_MFA_AUTH'] === 1 || adminUserIsNeed) {
-        this.fieldsMeta['mfa_level'].disabled = true
-        this.fieldsMeta['mfa_level'].helpText = this.$t('users.GlobalDisableMfaMsg')
-      }
     }
   }
 }

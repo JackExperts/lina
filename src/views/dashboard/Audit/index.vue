@@ -55,10 +55,10 @@ export default {
 
 <style lang="scss" scoped>
 .switch-date >>> .switch {
-  background: #DEE0E3!important;
+  background: #000!important;
   .el-radio-button {
     .el-radio-button__inner {
-      background: #DEE0E3!important;
+      background: #1a1a1c!important;
     }
   }
   .el-radio-button.is-active {
@@ -66,7 +66,7 @@ export default {
     padding: 4px 0!important;
     .el-radio-button__inner {
       color: black!important;
-      background-color: #FFF!important;
+      background-color: #fbbf24!important;
       border-radius: 4px!important;
     }
   }

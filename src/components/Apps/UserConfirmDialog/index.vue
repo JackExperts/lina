@@ -123,15 +123,12 @@ export default {
   mounted() {
     this.$eventBus.$on('showConfirmDialog', this.performConfirm)
   },
-  beforeDestroy() {
-    this.$eventBus.$off('showConfirmDialog', this.performConfirm)
-  },
   methods: {
     handleSubTypeChange(val) {
       this.inputPlaceholder = this.subTypeChoices.filter(item => item.name === val)[0]?.placeholder
       this.smsWidth = val === 'sms' ? 6 : 0
     },
-    performConfirm: _.throttle(function({ response, callback, cancel }) {
+    performConfirm({ response, callback, cancel }) {
       if (this.processing || this.visible) {
         return
       }
@@ -167,7 +164,7 @@ export default {
       }).finally(() => {
         this.processing = false
       })
-    }, 300),
+    },
     logout() {
       window.location.href = `${process.env.VUE_APP_LOGOUT_PATH}?next=${this.$route.fullPath}`
     },
@@ -226,6 +223,7 @@ export default {
   }
 
   .confirm-btn {
+    background-color: #27a12f;
     width: 100%;
     line-height: 20px;
   }

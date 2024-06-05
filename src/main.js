@@ -22,7 +22,6 @@ import ECharts from 'vue-echarts'
 import service from '@/utils/request'
 import { message } from '@/utils/message'
 import xss from '@/utils/xss'
-import request from '@/utils/request'
 import ElTableTooltipPatch from '@/utils/elTableTooltipPatch.js'
 
 /**
@@ -71,29 +70,10 @@ Vue.prototype.$xss = xss
 
 // 注册全局事件总线
 Vue.prototype.$eventBus = eventBus
-
 new Vue({
   el: '#app',
   i18n,
   router,
   store,
   render: h => h(App)
-})
-
-;(function() {
-  request({
-    url: '/api/v1/authentication/user-session/',
-    method: 'get'
-  })
-})()
-
-let IdBeforeunload = false
-
-window.addEventListener('beforeunload', (event) => {
-  if (IdBeforeunload) return
-  IdBeforeunload = true
-  request({
-    url: '/api/v1/authentication/user-session/',
-    method: 'delete'
-  })
 })

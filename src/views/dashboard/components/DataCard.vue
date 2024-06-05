@@ -51,7 +51,9 @@ export default {
 .card {
   width: 100%;
   padding: 20px;
-  background-color: #FFF;
+  background: #1a1a1c;
+  border-radius: .375rem;
+  border: 1px solid #2d2d31;
   .card-content {
     padding-bottom: 16px;
     border-bottom: 1px solid #EFF0F1;

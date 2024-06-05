@@ -102,11 +102,6 @@ export default {
             },
             sortable: true
           },
-          labels: {
-            formatterArgs: {
-              showEditBtn: false
-            }
-          },
           address: {
             sortable: 'custom',
             width: '150px'
